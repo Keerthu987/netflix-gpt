@@ -1,13 +1,12 @@
 // import logo from './logo.svg';
 import './App.css';
+import Body from './Utils/Body';
 <link rel="stylesheet" href="./index.css" />
 
 
 function App() {
   return (
-    <div className="font-bold text-center text-5xl text-red-400">
-      Netflis
-    </div>
+   <Body/>
   );
 }
 
