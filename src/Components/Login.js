@@ -1,18 +1,20 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword ,signInWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { checkValidData } from "../Utils/validate"
 import { useDispatch } from 'react-redux';
 import { addUser } from '../Utils/userSlice';
+import { GITHUB_URL_USER, NETFLIX_BG } from '../Utils/constants';
+// import { gitHubIssueUrl } from '@craco/craco';
 
 
 const Login = () => {
     const dispatch=useDispatch();
     const [isSignIn, setIsSignIn] = useState(true);
     const [errMsg, setErrMsg] = useState("");
-    const navigate=useNavigate();
+    // const navigate=useNavigate();
     const email = useRef(null);
     const pwd = useRef(null);
     const name = useRef(null);
@@ -29,7 +31,7 @@ const Login = () => {
                     // Signed up 
                     const user = userCredential.user;
                     updateProfile(user, {
-                        displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/81552301?v=4"
+                        displayName: name.current.value, photoURL: GITHUB_URL_USER
                       }
                     
                     ).then(() => {
@@ -37,7 +39,7 @@ const Login = () => {
                        dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
                         // Profile updated!
                         // ...
-                        navigate("/browse")
+                        // navigate("/browse")
                       }).catch((error) => {
                         setErrMsg(error.message)
                       });
@@ -60,8 +62,8 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
    
-    console.log(user);
-    navigate("/browse")
+    // console.log(user);
+    // navigate("/browse")
 
     // ...
   })
@@ -83,8 +85,7 @@ const Login = () => {
         <div >
             <Header />
             <div>
-                <img className='absolute w-full' src='https://assets.nflxext.com/ffe/siteui/vlv3/f268d374-734d-474f-ad13-af5ba87ef9fc/web/IN-en-20250210-TRIFECTA-perspective_92338d5d-6ccd-4b1a-8536-eb2b0240a55e_medium.jpg'
-                />
+                <img className='absolute w-full' src= {NETFLIX_BG}/>
             </div>
             <form className='bg-opacity-80 text-white absolute w-3/12 p-12 my-24 bg-black mx-auto right-0 left-0 ' onSubmit={(e) => { e.preventDefault() }}>
                 <h1 className='font-bold text-3xl py-4'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
