@@ -43,7 +43,7 @@ const Login = () => {
                       }).catch((error) => {
                         setErrMsg(error.message)
                       });
-                    console.log(user)
+                    // console.log(user)
                     
                     // ...
                 })

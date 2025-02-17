@@ -10,4 +10,15 @@ export const API_OPT = {
     }
   };      
   
+
   export const IMG_CDN="https://image.tmdb.org/t/p/w500/"
+
+  export const SUPPORTED_LANG=[{
+    id:"en",name:"English"
+  },
+  {
+    id:"hindi",name:"Hindi"
+  },
+  {
+    id:"spanish",name:"Spanish"
+  }]
