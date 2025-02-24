@@ -22,3 +22,5 @@ export const API_OPT = {
   {
     id:"spanish",name:"Spanish"
   }]
+
+  // export const OPENAI_API_KEY ='Xxxsk-proj-f_ZYcl0fPjdTTkAdh3xyJ8HP4ycMsJiCdl4L8m90m9m1i-PmJPoBOHP7FF0WxQJEjOka2RmxguT3BlbkFJiZR2jDS_oto7esWsnsGELaQoepkX1PkRhkLFnxoRnkwfSxNZiW2qyR4-t-2_eDD-eYo9_yeBAA'
